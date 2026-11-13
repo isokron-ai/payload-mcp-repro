@@ -1,0 +1,43 @@
+{
+  "name": "payload-mcp-repro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Minimal reproduction: @payloadcms/plugin-mcp update/delete tools and document locks; bulk delete partial failures without isError",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
+    "seed": "node scripts/seed.mjs",
+    "repro:locks": "node scripts/repro-locks.mjs",
+    "repro:bulk-delete": "node scripts/repro-bulk-delete.mjs",
+    "repro:bulk-update": "node scripts/repro-bulk-update.mjs",
+    "repro": "node scripts/repro-locks.mjs; node scripts/repro-bulk-delete.mjs; node scripts/repro-bulk-update.mjs",
+    "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
+    "generate:importmap": "cross-env NODE_OPTIONS=--no-deprecation payload generate:importmap"
+  },
+  "dependencies": {
+    "@payloadcms/db-sqlite": "3.93.0",
+    "@payloadcms/next": "3.93.0",
+    "@payloadcms/plugin-mcp": "3.93.0",
+    "@payloadcms/ui": "3.93.0",
+    "cross-env": "7.0.3",
+    "dotenv": "16.4.7",
+    "graphql": "16.11.0",
+    "next": "16.3.3",
+    "payload": "3.93.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.9",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "typescript": "5.7.3"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "unrs-resolver"
+    ]
+  }
+}
